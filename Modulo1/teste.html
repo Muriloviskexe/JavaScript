@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+<body>
+    <h1>Junções de nomes</h1>
+
+    <input type="text"  name="txt1" id="txt1">
+    <input type="text"  name="txt2" id="txt2">
+    <input type="button" value="Resultado" onclick="clicar()">
+    <div name='res' id="res"> Resposta</div>
+
+    <script>
+        function clicar(){
+            var t1 = document.getElementById('txt1')
+            var t2 = document.getElementById('txt2')
+            var res = t1 + t2
+            var resul = document.getElementById('res')
+            resul.innerHTML = 'Seu nome completo é: '+ res
+        }
+    </script>
+</body>
+</html>
