@@ -15,9 +15,9 @@
 
     <script>
         function clicar(){
-            var t1 = document.getElementById('txt1')
-            var t2 = document.getElementById('txt2')
-            var res = t1 + t2
+            var t1 = document.getElementById('txt1').value;
+            var t2 = document.getElementById('txt2').value;
+            var res = t1 + ' ' + t2
             var resul = document.getElementById('res')
             resul.innerHTML = 'Seu nome completo é: '+ res
         }
