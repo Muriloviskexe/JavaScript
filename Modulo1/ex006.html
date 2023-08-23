@@ -12,7 +12,7 @@
             justify-content: center;
             align-items: center; 
         }
-        .area{
+        #area{
             background-color: rgb(27, 83, 27);
             color: white;
             width: 200px;
@@ -26,9 +26,35 @@
     </style>
 </head>
 <body>
-    <div class="area">
-        Interaja
+    <div id="area" onmouseenter="entrar()" onmouseleave="sair()" onclick="clicar()">
+        Interaja...
     </div>
+
+    <script>
+        var a = window.document.getElementById('area')
+
+        a.addEventListener('click', clicar)
+        a.addEventListener('mouseenter', entrar)
+        a.addEventListener('mouseout', sair)
+
+        function clicar(){
+            
+            a.innerText = 'Clicou!'
+            a.style.backgroundColor = 'red'
+        }
+
+        function entrar(){
+            
+            a.innerText = 'Entrou!'
+
+        }
+
+        function sair(){
+            a.style.backgroundColor = 'green'
+            a.innerText = 'Saiu!'
+        }
+
+    </script>
     
 </body>
 </html>
