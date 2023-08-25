@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Paises</title>
+    <style>
+        body{
+            height: 97vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Verificar seu País</h1>
+        Digite o nome do seu pais: <input type="text" name="txtpais" id="txtpais">
+        <input type="button" value="verificar" onclick="verificar()">
+        <div id="res"></div>
+    </main>
+
+    <script>
+        function verificar(){
+            var pais = document.querySelector('input#txtpais').value;
+            var resul = document.querySelector('div#res')
+            resul.innerHTML = `Seu Pais é : ${pais}`
+
+            if(pais == 'Brasil'){
+                resul.innerHTML += `<p>Você é Brasileiro!<p>`
+            }else{
+                resul.innerHTML += '<p>Você é Gringo!'
+            }
+            
+            }
+        
+
+    </script>
+
+</body>
+</html>
