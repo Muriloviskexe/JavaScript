@@ -11,17 +11,15 @@
 </head>
 <body class="bg-stone-200 flex flex-col">
 
-  <section id="carrinho" class="fixed top-0 right-[-360px] bg-stone-950 h-screen w-[360px] text-zinc-50 z-50 shadow-xl shadow-stone-700/100">
+  <section id="carrinho" class="fixed inset-y-0 right-[-360px] bg-stone-950 h-screen w-[360px] text-zinc-50 z-50 duration-300 border-l border-slate-200 p-5 flex flex-col justify-between">
     
     <div id="cabecalho-carrinho" class="flex justify-between m-4">
-      <p>Meu Carrinho</p>
+      <p class="text-xl">Meu Carrinho</p>
       <button><i class="fa-solid fa-xmark" id="fechar-carrinho"></i></i></button>
     </div>
 
-    <div>
-      <p>Camisa Larga com Bolsos</p>
-      <p>Casaco Reto com Lã</p>
-      <p>Jaqueta com Efeito Camurça</p>
+    <div id="produtos-carrinho">
+      
     </div>
     
     <p id="preco-total">R$200</p>
