@@ -7,15 +7,16 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
 
 </head>
-<body class="bg-stone-200 flex flex-col">
+<body>
 
-  <section id="carrinho" class="fixed inset-y-0 right-[-360px] bg-stone-950 h-screen w-[360px] text-zinc-50 z-50 duration-300 border-l border-slate-200 p-5 flex flex-col justify-between">
+  <section id="carrinho" class="carrinho-down">
     
-    <div id="cabecalho-carrinho" class="flex justify-between m-4">
-      <p class="text-xl">Meu Carrinho</p>
-      <button><i class="fa-solid fa-xmark" id="fechar-carrinho"></i></i></button>
+    <div id="cabecalho-carrinho">
+      <p>Meu Carrinho</p>
+      <button id="fechar-carrinho"><i class="fa-solid fa-xmark" ></i></i></button>
     </div>
 
     <div id="produtos-carrinho">
@@ -23,14 +24,14 @@
     </div>
     
     <p id="preco-total">R$200</p>
-    <button class="bg-stone-700 text-slate-100 p-2">Finalizar Compra</button>
+    <button class="finalizar-compra">Finalizar Compra</button>
   </section>
 
-  <header class="flex bg-stone-950 justify-between p-4 sticky top-0 shadow-xl shadow-stone-700/100 text-2xl">
+  <header>
 
-    <img src="assets/logo/hashtag.svg" alt="Logo da Hashtag" class="h-28 p-4">
+    <img class="logo-hash" src="assets/logo/hashtag.svg" alt="Logo da Hashtag" >
 
-    <div class="text-zinc-50 flex gap-4 items-end mx-6">
+    <div class="botoes-menu">
 
       <button id="abrirHistorico"><i class="fa-solid fa-clock-rotate-left"></i></button>
       <button id="abrir-carrinho"><i class="fa-solid fa-cart-shopping"></i></button>
@@ -39,9 +40,9 @@
 
   </header>
 
-  <main class="bg-stone-200">
+  <main>
 
-    <section id="conteiner-produto" class="flex flex-wrap p-10 justify-center gap-20"></section>
+    <section id="conteiner-produto"></section>
 
   </main>
 
