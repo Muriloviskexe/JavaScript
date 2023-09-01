@@ -1,10 +1,11 @@
 @charset "UTF-8";
 
 
-body{
+body, html{
     padding: 0;
     margin: 0;
     background-color: #d2d6da;
+    height: 100%;
 }
 
 header{
@@ -12,6 +13,9 @@ header{
     background-color: #0D1B2A;
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 
 }
 
@@ -27,21 +31,25 @@ header{
     width: 360px;
     background-color: #0D1B2A;
     color: white;
-    height: 100vh;
+    height: 100%;
 }
 
 .carrinho-down{
     position: absolute;
     top: 0;
     right: -360px;
-    transition: 1s;
+    transition: 300ms;
+    z-index: 10;
 }
 
 .carrinho-on{
     position: absolute;
     top: 0;
     right: 0;
-    transition: 1s;
+    transition: 300ms;
+    z-index: 10;
+    height: 100%;
+
 }
 
 #cabecalho-carrinho{
@@ -62,10 +70,18 @@ header{
     align-items: end;
     padding: 2px;
     margin: 15px;
-    
 }
 
-#abrirHistorico{
+#abrir-carrinho{
+    background-color: #0D1B2A;
+    color: white;
+    font-size: x-large;
+}
+
+#abrir-historico{
+    background-color: #0D1B2A;
+    color: white;
+    font-size: x-large;
     margin-right: 10px;
 }
 
@@ -74,16 +90,84 @@ header{
 }
 
 .card-produto{
+    padding: 5px;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
     height: fit-content;
-    width: fit-content;
-    background-color: #0D1B2A;
+    width: 200px;
+    border: solid 1px #323c47a1;
+    box-shadow: 1px 1px 4px #0D1B2A;
+    border-radius: 5px;
     
+}
+
+.card-produto:hover{
+    transform: scale(110%);
+    transition: 300ms;
+    
+}
+.card-produto:not(:hover){ 
+    transform: scale(100%);
+    transition: 300ms;
 }
 
 #conteiner-produto{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap;
     padding: 100px;
 }
 
+.adc-carrinho{
+    background-color: #0D1B2A;
+    color: white;
+    height: 30px;
+}
+
+.adc-carrinho:hover{
+    transform: scale(105%);
+    transition: 300ms;
+}
+.adc-carrinho:not(:hover){ 
+    transform: scale(100%);
+    transition: 300ms;
+}
+
+.produto-carrinho{
+    display: flex;
+    position: relative;
+    border-radius: 10px;
+    width: 300px;
+    background-color: #3a495a99;
+    padding: 5px;
+    margin: 10px;
+    height: 180px;
+}
+.img-carrinho{
+    width: 100px;
+    border-radius: 10px;
+}
+.lixeira-carrinho{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 30px;
+    width: 20px;
+}
+.texto-carrinho{
+    width: 200px;
+    padding: 5px;
+    margin: 5px;
+}
+.nome-produto-carrinho{
+    font-size: 16pt;
+}
+.tamanho-produto-carrinho{
+    font-size: small;
+    color: rgb(181, 186, 190);
+}
+.preco-produto-carrinho{
+    color: rgb(77, 225, 77);
+    font-size: x-large;
+}
