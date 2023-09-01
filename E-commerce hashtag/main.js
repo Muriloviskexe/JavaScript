@@ -76,19 +76,22 @@ function inicializarCarrinho(){
     botaoAbrirCarrinho.addEventListener('click',abrirCarrinho)
   }
   
-function adicionarAoCarrinho(){
+function adicionarAoCarrinho(idProduto){
+    const produto = catalogo.find(p => p.id===idProduto)
+
     const conteinerProdutosCarrinho = document.getElementById(`produtos-carrinho`)
+
     const cartaoProdutoCarrinho = 
     `<article class="produto-carrinho">
   
-    <button><i class="fa-solid fa-trash-can lixeira-carrinho"></i></button>
+    <button class='lixeira-carrinho'><i class="fa-solid fa-trash-can"></i></button>
   
-    <img src="./assets/img/product-1.jpg" class="img-carrinho">
+    <img src="./assets/img/${produto.imagem}" class="img-carrinho">
   
     <div class="texto-carrinho">
-      <p class="nome-produto-carrinho">Camisa Larga com Bolsos</p>
+      <p class="nome-produto-carrinho">${produto.nome}</p>
       <p class="tamanho-produto-carrinho">Tamanho: M</p>
-      <p class="preco-produto-carrinho">$70</p>
+      <p class="preco-produto-carrinho">$${produto.preco}</p>
     </div>
   
   </article>`
@@ -101,20 +104,24 @@ function adicionarAoCarrinho(){
 function renderizarCatalogo(){
     for (const produtoCatalogo of catalogo){
      const cartaoProduto =
-    `<div class="card-produto-${produtoCatalogo.id}">
+    `<div class="card-produto"${produtoCatalogo.id}">
 
         <img class='img-produto' src="./assets/img/${produtoCatalogo.imagem}">
     
         <p class='marca'>${produtoCatalogo.marca}</p>
         <p>${produtoCatalogo.nome}</p>
         <p>R$${produtoCatalogo.preco}</p>
-        <button class='adc-carrinho'>
+        <button id='adicionar-${produtoCatalogo.id}'class='adc-carrinho'>
         <i class="fa-solid fa-cart-plus"></i>
         </button>
     </div>`;
     
     document.getElementById('conteiner-produto').innerHTML += cartaoProduto
-    }}
+    }
+    for (const produtoCatalogo of catalogo){
+        document.getElementById(`adicionar-${produtoCatalogo.id}`).addEventListener('click', () => adicionarAoCarrinho(produtoCatalogo.id))
+    }
+}
 
 
 renderizarCatalogo()
