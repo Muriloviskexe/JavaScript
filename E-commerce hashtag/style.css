@@ -4,13 +4,13 @@
 body, html{
     padding: 0;
     margin: 0;
-    background-color: #d2d6da;
-    height: 100%;
+    background-color: #f0eaeb;
+
 }
 
 header{
     height: 150px;
-    background-color: #0D1B2A;
+    background-color: #000f0f;
     display: flex;
     justify-content: space-between;
     position: sticky;
@@ -20,22 +20,22 @@ header{
 }
 
 .logo-hash{
-    width: 150px;
+    width: 200px;
+    color: white;
 }
 
 #carrinho{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
     width: 360px;
-    background-color: #0D1B2A;
+    background-color: #000f0f;
     color: white;
     height: 100%;
 }
 
 .carrinho-down{
-    position: absolute;
+    position: fixed;
     top: 0;
     right: -360px;
     transition: 300ms;
@@ -43,7 +43,7 @@ header{
 }
 
 .carrinho-on{
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     transition: 300ms;
@@ -70,19 +70,32 @@ header{
     align-items: end;
     padding: 2px;
     margin: 15px;
+
 }
 
 #abrir-carrinho{
-    background-color: #0D1B2A;
+    background-color: #000f0f;
     color: white;
     font-size: x-large;
+    border:none;
 }
 
 #abrir-historico{
-    background-color: #0D1B2A;
+    background-color: #000f0f;
     color: white;
     font-size: x-large;
     margin-right: 10px;
+    border:none;
+}
+
+#abrir-carrinho:hover{
+    transform: scale(130%);
+    transition: 300ms;
+}
+
+#abrir-historico:hover{
+    transform: scale(130%);
+    transition: 300ms;
 }
 
 .img-produto{
@@ -97,8 +110,9 @@ header{
     height: fit-content;
     width: 200px;
     border: solid 1px #323c47a1;
-    box-shadow: 1px 1px 4px #0D1B2A;
+    box-shadow: 1px 1px 4px #000f0f;
     border-radius: 5px;
+    background-color: rgba(230, 234, 237, 0.59);
     
 }
 
@@ -120,7 +134,7 @@ header{
 }
 
 .adc-carrinho{
-    background-color: #0D1B2A;
+    background-color: #000f0f;
     color: white;
     height: 30px;
 }
@@ -140,34 +154,39 @@ header{
     border-radius: 10px;
     width: 300px;
     background-color: #3a495a99;
-    padding: 5px;
+    padding: 10px;
+    height: 150px;
     margin: 10px;
-    height: 180px;
 }
 .img-carrinho{
+    margin-right: 5px;
     width: 100px;
+    height: 140px;
     border-radius: 10px;
 }
 .lixeira-carrinho{
     position: absolute;
     top: 5px;
     right: 5px;
-    height: 30px;
-    width: 20px;
+    border: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0);
 }
 .texto-carrinho{
-    width: 200px;
+    width: 150px;
     padding: 5px;
-    margin: 5px;
 }
 .nome-produto-carrinho{
-    font-size: 16pt;
+    font-size: 14pt;
+    margin: 0px;
 }
 .tamanho-produto-carrinho{
-    font-size: small;
+    font-size: 9pt;
     color: rgb(181, 186, 190);
+    margin-top: 10px;
 }
 .preco-produto-carrinho{
     color: rgb(77, 225, 77);
-    font-size: x-large;
+    font-size: 18pt;
+    margin-top: 10px
 }
