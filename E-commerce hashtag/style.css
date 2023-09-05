@@ -8,6 +8,7 @@ body, html{
 
 }
 
+
 header{
     height: 150px;
     background-color: #000f0f;
@@ -48,9 +49,24 @@ header{
     right: 0;
     transition: 300ms;
     z-index: 10;
-    height: 100%;
-
+    overflow-y: scroll;
 }
+
+::-webkit-scrollbar{
+    width:10px;
+    border: 1px solid gray;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+::-webkit-scrollbar-thumb {
+    background: #3c3838; 
+  }
+::-webkit-scrollbar-thumb {    
+    border-radius: 30px;      
+    border: 2px solid white;
+  }
+
 
 #cabecalho-carrinho{
     display: flex;
@@ -132,6 +148,9 @@ header{
     flex-wrap: wrap;
     padding: 100px;
 }
+#conteiner-produto::-webkit-scrollbar{
+    width: 10px;
+}
 
 .adc-carrinho{
     background-color: #000f0f;
@@ -172,6 +191,10 @@ header{
     color: white;
     background-color: rgba(0, 0, 0, 0);
 }
+
+.lixeira-carrinho:hover{
+    transform: scale(110%);
+}
 .texto-carrinho{
     width: 150px;
     padding: 5px;
@@ -184,9 +207,16 @@ header{
     font-size: 9pt;
     color: rgb(181, 186, 190);
     margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .preco-produto-carrinho{
     color: rgb(77, 225, 77);
     font-size: 18pt;
     margin-top: 10px
+}
+
+#texto-carrinho{
+    font-size: 20pt;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
 }
