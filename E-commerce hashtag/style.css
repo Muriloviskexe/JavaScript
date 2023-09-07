@@ -196,7 +196,7 @@ header{
     
 }
 
-#menos-item{
+.menos-item{
     position: absolute;
     border: none;
     background-color: #000f0f00;
@@ -205,7 +205,7 @@ header{
     top: 109px;
     right: 7px;
     
-}#mais-item{
+}.mais-item{
     border: none;
     background-color: #000f0f00;
     color: white;
@@ -215,12 +215,35 @@ header{
     right: -30px;
 }
 
-#menos-item:hover{
+.menos-item:hover{
     transform: scale(120%);
     transition: 100ms;
-}#mais-item:hover{
+}.mais-item:hover{
     transform: scale(120%);
     transition: 100ms;
+}
+
+.finalizar-compra{
+    border: none;
+    height: 50px;
+    width: 200px;
+    margin: auto;
+    border-radius: 20px;
+    background-color: #9cb6b6;
+    font-size: larger;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+
+}
+.finalizar-compra:hover{
+    transform: scale(110%);
+    transition: 200ms;
+    background-color: #b3c5c5;
+}
+.finalizar-compra:not(hover){
+    transform: scale(100%);
+    transition: 400ms;
+    background-color: #9cb6b6;
 }
 
 
@@ -268,12 +291,12 @@ header{
 }
 
 .adc-carrinho:hover{
-    transform: scale(105%);
-    transition: 300ms;
+    background-color: #687878;
+    transition: 400ms;
 }
 .adc-carrinho:not(:hover){ 
-    transform: scale(100%);
     transition: 300ms;
+    background-color: #000f0f;
 }
 
 

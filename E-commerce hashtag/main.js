@@ -1,3 +1,5 @@
+// PRODUTOS
+
 const catalogo = [
     {id: '1',
     nome: 'Camisa Larga com Bolso',
@@ -58,15 +60,16 @@ const catalogo = [
 
 ]
 
+// fUNÇÕES CARRINHO
 function abrirCarrinho(){
     document.getElementById('carrinho').classList.add('carrinho-on');
     document.getElementById('carrinho').classList.remove('carrinho-down');
-  }
+}
   
   function fecharCarrinho(){
     document.getElementById('carrinho').classList.remove('carrinho-on');
     document.getElementById('carrinho').classList.add('carrinho-down');
-  }
+}
   
 function inicializarCarrinho(){
     const botaoFecharCarrinho = document.getElementById('fechar-carrinho')
@@ -74,35 +77,29 @@ function inicializarCarrinho(){
   
     botaoFecharCarrinho.addEventListener('click',fecharCarrinho)
     botaoAbrirCarrinho.addEventListener('click',abrirCarrinho)
-  }
-
-const idsProdutoCarrinhoComQuantidade = {};
- 
-function incrementarQuantidadeProduto(idProduto){
-    idsProdutoCarrinhoComQuantidade[idProduto]++;
 }
-
-function decrementarQuantidadeProduto(idProduto){
-    idsProdutoCarrinhoComQuantidade[idProduto]--;
-}
-
 
 function adicionarAoCarrinho(idProduto){
     if (idProduto in idsProdutoCarrinhoComQuantidade){
         incrementarQuantidadeProduto(idProduto);
-        return;
+         return; //Verificando se já tem algum item no carrinho, caso tenha ele incrementa um número e cancela o resto da operação, se não ele continua
         
-    }else{
+    } 
     idsProdutoCarrinhoComQuantidade[idProduto] = 1;
+    desenharProdutoCarrinho(idProduto)
+}
 
-    const produto = catalogo.find(p => p.id===idProduto)
+function desenharProdutoCarrinho(idProduto){
+    const produto = catalogo.find(p => p.id===idProduto) //Criando a variavéç produto que vai ate a variavel catalgo procurar a variavel p que é o id dos produtos cadastrados
 
-    const conteinerProdutosCarrinho = document.getElementById(`produtos-carrinho`)
+    const conteinerProdutosCarrinho = document.getElementById(`produtos-carrinho`) //Busca as informações de um elemento HTML para trazer ate a var criada 'conteinerProdutosCarrinho
 
-    const cartaoProdutoCarrinho = 
-    `<article class="produto-carrinho">
-  
-    <button class='lixeira-carrinho'><i class="fa-solid fa-trash-can"></i></button>
+    const elementoArticle = document.createElement('article')
+    elementoArticle.classList.add('produto-carrinho')
+    
+
+    const cartaoProdutoCarrinho = //Criando uma variavel com as informações HTMl que serão adicionadas ao carrinho no clique
+    `<button class='lixeira-carrinho' id = 'remover-item-${produto.id}'><i class="fa-solid fa-trash-can"></i></button>
   
     <img src="./assets/img/${produto.imagem}" class="img-carrinho">
   
@@ -111,20 +108,64 @@ function adicionarAoCarrinho(idProduto){
       <p class="tamanho-produto-carrinho">Tamanho: M</p>
       <p class="preco-produto-carrinho">$${produto.preco}</p>
     </div>
+
     <div class='controle-quantidade'> 
-        <button id = 'menos-item'><i class="fa-solid fa-minus"></i></button>
-        <p id = 'quantidade-${produto.id}'>${idsProdutoCarrinhoComQuantidade[produto.id]}</p>
-        <button id = 'mais-item'><i class="fa-solid fa-plus"></i></button>
-    </div>
-  
-  </article>`
-  conteinerProdutosCarrinho.innerHTML += cartaoProdutoCarrinho
+        <button class = 'menos-item' id='decrementar-${produto.id}'><i class="fa-solid fa-minus"></i></button>
+
+        <p id = 'quantidade-${idProduto}'>${idsProdutoCarrinhoComQuantidade[idProduto]}</p>
+
+        <button class = 'mais-item' id='incrementar-${produto.id}'> <i class="fa-solid fa-plus"></i> </button>
+    </div>`
+
+  elementoArticle.innerHTML = cartaoProdutoCarrinho;
+  conteinerProdutosCarrinho.appendChild(elementoArticle); 
+
+  document.getElementById(`decrementar-${produto.id}`).addEventListener('click',() =>decrementarQuantidadeProduto(produto.id)) //ele vai pegar a informação de clique no ID selecionado e executar a function mencionada ('decrementarQuadidadeProduto')
+
+  document.getElementById(`incrementar-${produto.id}`).addEventListener('click',() =>incrementarQuantidadeProduto(produto.id))
+
+  document.getElementById(`remover-item-${produto.id}`).addEventListener('click',() =>removerDoCarrinho(produto.id))
+}
+
+
+function renderizarProdutosCarrinho(){
+    const conteinerProdutosCarrinho = document.getElementById(`produtos-carrinho`)
+    conteinerProdutosCarrinho.innerHTML = '';
+
+    for (const idProduto in idsProdutoCarrinhoComQuantidade){
+        desenharProdutoCarrinho(idProduto)
     }
 }
 
 
+// QUANTIDADE NO CARRINHO
+const idsProdutoCarrinhoComQuantidade = {};
 
+function incrementarQuantidadeProduto(idProduto){
+    idsProdutoCarrinhoComQuantidade[idProduto]++;
+    atualizarQuantidade(idProduto)
+}
 
+function decrementarQuantidadeProduto(idProduto){
+    if(idsProdutoCarrinhoComQuantidade[idProduto] === 1){
+        removerDoCarrinho(idProduto)
+        return;
+    }
+    idsProdutoCarrinhoComQuantidade[idProduto]--;
+    atualizarQuantidade(idProduto)
+}
+
+function atualizarQuantidade(idProduto){
+    document.getElementById(`quantidade-${idProduto}`).innerText = idsProdutoCarrinhoComQuantidade[idProduto];
+}
+
+function removerDoCarrinho(idProduto){
+    delete idsProdutoCarrinhoComQuantidade[idProduto];
+    renderizarProdutosCarrinho() 
+
+}
+
+// TELA PRINCIPAL
 function renderizarCatalogo(){
     for (const produtoCatalogo of catalogo){
      const cartaoProduto =
@@ -147,6 +188,6 @@ function renderizarCatalogo(){
     }
 }
 
-
+// INICIALIZAÇÃO DE CODIGOS
 renderizarCatalogo()
 inicializarCarrinho()
