@@ -7,7 +7,6 @@ body{
     align-items: center;
     display: flex;
     flex-direction: column;
-
     height: 97vh;
 }
 main{
@@ -26,4 +25,14 @@ footer{
     color: white;
     font-style: italic;
     
+}
+
+img{
+    height: 200px;
+}
+
+div{
+    text-align: center;
+    padding:8px;
+    font-size: large;
 }
