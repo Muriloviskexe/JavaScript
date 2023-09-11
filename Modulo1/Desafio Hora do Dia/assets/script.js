@@ -6,6 +6,7 @@ function carregar(){
     var minuto = data.getMinutes()
     msg.innerHTML = `Agora são exatamente ${hora} horas e ${minuto} minutos `
 
+
     if(hora > 0 && hora < 12){ //Bom dia
         document.body.style.backgroundColor = '#e5e58f'
         msg.innerHTML += `da manhã.`
