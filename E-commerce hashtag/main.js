@@ -144,6 +144,7 @@ const idsProdutoCarrinhoComQuantidade = {};
 function incrementarQuantidadeProduto(idProduto){
     idsProdutoCarrinhoComQuantidade[idProduto]++;
     atualizarQuantidade(idProduto)
+    
 }
 
 function decrementarQuantidadeProduto(idProduto){
@@ -152,7 +153,9 @@ function decrementarQuantidadeProduto(idProduto){
         return;
     }
     idsProdutoCarrinhoComQuantidade[idProduto]--;
+    
     atualizarQuantidade(idProduto)
+    
 }
 
 function atualizarQuantidade(idProduto){
@@ -162,7 +165,17 @@ function atualizarQuantidade(idProduto){
 function removerDoCarrinho(idProduto){
     delete idsProdutoCarrinhoComQuantidade[idProduto];
     renderizarProdutosCarrinho() 
+    
 
+}
+
+function atualizarPreco(){
+    const Total = document.getElementById('preco-carrinho');
+    let precoTotalCarrinho = 0;
+    for(const idProdutoNoCarrinho in idsProdutoCarrinhoComQuantidade){
+        precoTotalCarrinho += catalogo.find((p) => p.id === idProdutoNoCarrinho).preco * idsProdutoCarrinhoComQuantidade[idProdutoNoCarrinho];
+    }
+    Total.innerHTML = 'Total: $';
 }
 
 // TELA PRINCIPAL
