@@ -106,7 +106,7 @@ function desenharProdutoCarrinho(idProduto){
     <div class="texto-carrinho">
       <p class="nome-produto-carrinho">${produto.nome}</p>
       <p class="tamanho-produto-carrinho">Tamanho: M</p>
-      <p class="preco-produto-carrinho">$${produto.preco}</p>
+      <p class="preco-produto-carrinho">R$${produto.preco}</p>
     </div>
 
     <div class='controle-quantidade'> 
